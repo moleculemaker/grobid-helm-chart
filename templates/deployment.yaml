@@ -1,0 +1,23 @@
+# Defines the deployment of the app running in a pod on any worker node
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: mmli-grobid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mmli-grobid
+  template:
+    metadata:
+      labels:
+        app: mmli-grobid
+    spec:
+      containers:
+        - name: grobid
+          image: {{ .Values.controller.image }}
+          imagePullPolicy: {{ .Values.controller.imagePullPolicy | default "Always" }}
+          ports:
+            - containerPort: 8070

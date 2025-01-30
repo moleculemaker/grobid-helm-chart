@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  selector:
+    app: mmli-grobid
+  type: ClusterIP
+  ports:
+    - name: grobid
+      protocol: TCP
+      port: 8070
+      targetPort: 8070

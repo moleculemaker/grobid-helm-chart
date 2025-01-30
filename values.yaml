@@ -1,0 +1,7 @@
+controller:
+  imagePullPolicy: Always
+  image: grobid/grobid:0.7.3
+  
+
+
+
