@@ -1,5 +1,5 @@
 controller:
-  imagePullPolicy: Always
+  imagePullPolicy: IfNotPresent
   image: grobid/grobid:0.7.3
   
 
