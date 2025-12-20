@@ -6,8 +6,6 @@ metadata:
   labels:
     app: {{ .Release.Name }}
 spec:
-  nodeSelector:
-  
   replicas: 1
   selector:
     matchLabels:
@@ -18,10 +16,10 @@ spec:
         app: {{ .Release.Name }}
     spec:
 {{- if .Values.nodeSelector }}
-    nodeSelector:
-    {{- with .Values.nodeSelector }}
-      {{- toYaml . | nindent 6 }}
-    {{- end }}
+      nodeSelector:
+      {{- with .Values.nodeSelector }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
 {{- end }}
       }
       containers:
