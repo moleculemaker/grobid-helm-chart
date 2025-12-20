@@ -1,0 +1,2 @@
+nodeSelector:
+  ncsa.role: "worker-job"
