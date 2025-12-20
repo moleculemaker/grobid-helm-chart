@@ -4,17 +4,22 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}
   labels:
-    app: mmli-grobid
+    app: {{ .Release.Name }}
 spec:
+  nodeSelector:
+  
   replicas: 1
   selector:
     matchLabels:
-      app: mmli-grobid
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: mmli-grobid
+        app: {{ .Release.Name }}
     spec:
+{{- if .Values.nodeSelector }}
+      nodeSelector: {{ .Values.nodeSelector }}
+{{- endif }}
       containers:
         - name: grobid
           image: {{ .Values.controller.image }}
