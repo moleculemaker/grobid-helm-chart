@@ -1,2 +1,1 @@
-nodeSelector:
-  ncsa.role: "worker-job"
+enableGPU: true
