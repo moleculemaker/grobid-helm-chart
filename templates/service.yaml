@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   selector:
-    app: mmli-grobid
+    app: {{ .Release.Name }}
   type: ClusterIP
   ports:
     - name: grobid
